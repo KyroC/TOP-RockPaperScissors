@@ -9,8 +9,35 @@ function computerPlay(){
     else {
         computerChoice = "Scissors"
     }
-    console.log(computerChoice)
-    console.log(botChoice)
+    return computerChoice
 }
 
-computerPlay()
+function playRound(playerSelection,computerSelection){
+    playerSelection = playerSelection.toLowerCase()
+
+    if (playerSelection == computerSelection.toLowerCase()) {
+        return "It's a tie!"
+    }
+    else if (playerSelection == "rock" && computerSelection == "Paper"){
+        return "You Lose! " + computerSelection + " beats " + playerSelection
+    }
+    else if (playerSelection == "rock" && computerSelection =="Scissors") {
+        return "You Win! " + playerSelection + " beats " + computerSelection
+    }
+    else if (playerSelection == "paper" && computerSelection == "Scissors"){
+        return "You Lose! " + computerSelection + " beats " + playerSelection
+    }
+    else if (playerSelection == "paper" && computerSelection == "Rock") {
+        return "You Win! " + playerSelection + " beats " + computerSelection
+    }
+    else if (playerSelection == "scissors" && computerSelection == "Rock"){
+        return "You Lose! " + computerSelection + " beats " + playerSelection
+    }
+    else if (playerSelection == "scissors" && computerSelection == "Paper") {
+        return "You Win! " + playerSelection + " beats " + computerSelection
+    }
+}
+const playerSelection = "rock"
+const computerSelection = computerPlay()
+
+console.log(playRound(playerSelection,computerSelection))
