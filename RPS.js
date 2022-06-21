@@ -47,6 +47,43 @@ function playRound(playerSelection,computerSelection){
         return "You Win! " + playerSelection + " beats " + computerSelection
     }
 }
+
+const pScore = document.querySelector('#pScore')
+
+const cScore = document.querySelector('#cScore')
+
+const buttons = document.querySelectorAll('button');
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id
+        let computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection))
+        if (playerScore == 5 ) {
+            pScore.innerHTML = "Player Wins!"
+            cScore.innerHTML = "Computer Lose!"
+
+        }
+        else if (computerScore == 5 ) {
+            pScore.innerHTML = "Player Lose!"
+            cScore.innerHTML = "Computer Wins!"
+        }
+        else if(computerScore < 5 && playerScore < 5){
+            pScore.innerHTML = "Player Score: " + playerScore
+            cScore.innerHTML = "Computer Score: " + computerScore
+        } else {
+            pScore.innerHTML = "Refresh to restart the game"
+            cScore.innerHTML = ""
+        }
+
+        
+        
+    })
+
+});
+
+/* 
 function game() {
 
     for (i = 0 ; i < 5 ; i++){
@@ -58,5 +95,6 @@ function game() {
         
 
     }
-}
-console.log(game())
+} 
+console.log(game()) 
+*/
